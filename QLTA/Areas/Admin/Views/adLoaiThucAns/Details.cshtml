@@ -1,0 +1,27 @@
+﻿@model QLTA.Models.LoaiThucAn
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoaiThucAn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button onclick="location.href='@Url.Action("Edit", new { id = Model.Id })';return false ;" style="background-color: #99FFCC">Chỉnh sửa</button>
+    <button onclick="location.href='@Url.Action("Index")';return false;">Trở lại</button>
+</p>

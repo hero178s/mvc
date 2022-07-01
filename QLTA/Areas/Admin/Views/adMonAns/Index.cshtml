@@ -1,0 +1,75 @@
+﻿@model IEnumerable<QLTA.Models.MonAn>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý Danh Sách Món Ăn</h2>
+
+<p>
+    @Html.ActionLink("Thêm món ăn", "Create")
+</p>
+<table class="table">
+    <tr class="bg-success text-white">
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiThucAn.TenTL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiNau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiThucAn.TenTL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenMA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiNau)
+        </td>
+        <td>
+            <img src=" @Html.DisplayFor(modelItem => item.Hinh)" alt="Alternate Text" width="100" height="100"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @*@Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Thông tin", "Details", new { id = item.Id }) |
+            @Html.ActionLink("xóa", "Delete", new { id = item.Id })*@
+            <button onclick="location.href='@Url.Action("Edit", new { id = item.Id })';return false ;" style="background-color: #99FFCC">Chỉnh sửa</button>
+            <br/>
+            <button onclick="location.href='@Url.Action("Delete",new { id = item.Id })';return false;" style="margin-top: 10px; background-color: #99FFCC" >Xóa</button>
+            <br/>
+            <button onclick="location.href='@Url.Action("Details", new { id = item.Id })';return false;" style="margin-top: 10px; background-color: #99FFCC ">Thông tin món ăn</button>
+        </td>
+    </tr>
+}
+
+</table>

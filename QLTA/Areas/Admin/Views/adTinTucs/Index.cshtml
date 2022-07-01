@@ -1,0 +1,63 @@
+﻿@model IEnumerable<QLTA.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TacGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioDang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia)
+        </td>
+        <td>
+            <img src=" @Html.DisplayFor(modelItem => item.Hinh)" alt="Alternate Text" width="100" height="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            <button onclick="location.href='@Url.Action("Edit", new { id = item.Id })';return false ;" style="background-color: #99FFCC">Chỉnh sửa</button>
+
+            <button onclick="location.href='@Url.Action("Delete",new { id = item.Id })';return false;" style="margin-left: 10px; background-color: #99FFCC">Xóa</button>
+
+            <button onclick="location.href='@Url.Action("Details",new { id = item.Id })';return false;" style="margin-left: 10px; background-color: #99FFCC ">Thông tin loại</button>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>

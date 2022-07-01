@@ -1,0 +1,78 @@
+﻿@model QLTA.Models.MonAn
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin món ăn</h2>
+
+<div>
+    <h4>Món ăn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiThucAn.TenTL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiThucAn.TenTL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMA)
+        </dd>
+
+        <dt>
+            Người nấu
+            @*@Html.DisplayNameFor(model => model.NguoiNau)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiNau)
+        </dd>
+
+        <dt>
+            Hình ảnh
+        </dt>
+
+        <dd>
+            <img src=" @Html.DisplayFor(modelItem => modelItem.Hinh)" alt="Alternate Text" width="100" height="100" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button onclick="location.href='@Url.Action("Edit", new { id = Model.Id })';return false;">Chỉnh sửa</button>
+    <button onclick="location.href='@Url.Action("Index")';return false;" style="margin-left: 20px">Trở lại</button>
+    @*@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }) 
+    @Html.ActionLink("Trở lại", "Index")*@
+</p>

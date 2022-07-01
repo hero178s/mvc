@@ -1,0 +1,81 @@
+﻿@model QLTA.Models.MonAn
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa món ăn</h2>
+
+<h3> Bạn có muốn xóa ?</h3>
+<div>
+    <h4>Món ăn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiThucAn.TenTL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiThucAn.TenTL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiNau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiNau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại danh sách", "Index")
+        </div>
+    }
+</div>
